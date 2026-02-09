@@ -379,7 +379,7 @@ export default function Hero() {
             { label: "BRAIN FREQ", value: "14.8 HZ" },
             { label: "ZONE", value: "Deep Focus" },
             { label: "FREQ TONE", value: "Low Beta" },
-          ].map((stat, index) => (
+          ].map((stat) => (
             <motion.div
               key={stat.label}
               className="flex flex-col items-center"
@@ -473,7 +473,7 @@ export default function Hero() {
         >
           {/* Button shine effect */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent"
             initial={{ x: "-100%" }}
             animate={{ x: "100%" }}
             transition={{
