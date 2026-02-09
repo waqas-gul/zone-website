@@ -76,7 +76,7 @@ const TechnologySection = () => {
 
   return (
     <motion.section
-      className="relative w-full min-h-screen overflow-hidden bg-black"
+      className="relative w-full min-h-screen overflow-hidden bg-black px-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -164,28 +164,53 @@ const TechnologySection = () => {
           </div>
 
           <div className="relative flex items-center justify-center lg:justify-end px-4 sm:px-8 lg:px-0">
+            {/* Blurred background image - coming from right */}
             <motion.img
-              src="/earbuds.png.png"
+              src="/brain_sensing.png"
               alt="Earbud blurred"
-              className="absolute left-4 sm:left-8 lg:left-10 top-1/2 w-40 sm:w-48 md:w-56 -translate-y-1/2 opacity-60 blur-md"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 0.6, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              className="absolute right-4 sm:right-8 lg:right-10 top-1/2 w-40 sm:w-48 md:w-56 -translate-y-1/2"
+              initial={{ opacity: 0, x: 100, scale: 0.9 }} // Starting from right
+              whileInView={{ opacity: 0.6, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 1.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              style={{
+                filter: "blur(12px)",
+              }}
             />
 
+            {/* Main image - sliding in from right */}
             <motion.img
-              src="/earbuds.png"
+              src="/brain_sensing.png"
               alt="Earbud"
-              className="relative z-10 w-64 sm:w-72 md:w-80 lg:w-full max-w-md drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] sm:drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
-              initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
-              whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1,
-                ease: "easeOut",
+              className="relative z-10 sm:w-72 md:w-80 lg:w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] sm:drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
+              initial={{
+                opacity: 0,
+                scale: 0.85,
+                x: 100, // Start off-screen to the right
+                rotateY: -15, // Adjusted for right-to-left movement
               }}
-              whileHover={{ scale: 1.05 }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                x: 0, // Move to normal position
+                rotateY: 0,
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 2.2,
+                ease: [0.16, 1, 0.3, 1],
+                delay: 0.2, // Slight delay for staggered effect
+              }}
+              whileHover={{
+                scale: 1.04,
+                x: -10, // Slight left movement on hover for depth
+              }}
+              style={{
+                transformPerspective: 1200,
+              }}
             />
           </div>
         </div>

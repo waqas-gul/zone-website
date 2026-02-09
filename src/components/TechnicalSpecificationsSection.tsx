@@ -59,7 +59,7 @@ FCC-certified`,
 
 const SpecBlock = ({ icon: Icon, title, text, index, side }: any) => (
   <motion.div
-    className="relative flex gap-3 rounded-lg px-3 py-2 sm:gap-4 sm:px-3 sm:py-2"
+    className="relative flex gap-3 rounded-lg px-3  py-2 sm:gap-4 sm:px-3 sm:py-2"
     initial={{ opacity: 0, x: side === "left" ? -30 : 30, y: 20 }}
     whileInView={{ opacity: 1, x: 0, y: 0 }}
     viewport={{ once: true }}
@@ -133,7 +133,7 @@ const SpecBlock = ({ icon: Icon, title, text, index, side }: any) => (
 const TechnicalSpecificationsSection = () => {
   return (
     <motion.section
-      className="relative w-full bg-[#42413E] py-12 text-white/80 sm:py-20 lg:py-28 overflow-hidden"
+      className="relative w-full bg-[#42413E] py-12 text-white/80 sm:py-20 px-10 lg:py-28 overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -222,13 +222,13 @@ const TechnicalSpecificationsSection = () => {
         <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16 xl:gap-20">
           {/* LEFT COLUMN - Image and "What's Included" card */}
           <motion.div
-            className="order-2 lg:order-1 flex flex-col items-center"
+            className="order-2  lg:order-1 flex flex-col items-center"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7 }}
           >
-            <motion.div
+            <motion.div className="w-full h-full  flex items-center justify-center"
               initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
               whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
               viewport={{ once: true }}
@@ -243,9 +243,9 @@ const TechnicalSpecificationsSection = () => {
               }}
             >
               <img
-                src="/bud1.png"
+                src="/Buds_case_3.png"
                 alt="Zone earbuds"
-                className="mb-6 w-full max-w-[220px] sm:max-w-[240px] lg:mb-8 lg:w-[260px] drop-shadow-xl"
+                className="mb-6 w-full   lg:mb-8 drop-shadow-xl"
               />
             </motion.div>
 

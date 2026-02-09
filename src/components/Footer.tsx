@@ -112,7 +112,7 @@ const Footer = () => {
         transition={{ delay: 0.2, duration: 1 }}
       >
         <motion.h1
-          className="pointer-events-none select-none text-[35vw] sm:text-[30vw] lg:text-[33vw] font-semibold tracking-tight text-black/85"
+          className="pointer-events-none select-none text-[35vw] sm:text-[30vw] lg:text-[25vw] font-semibold tracking-tight text-black/85"
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}

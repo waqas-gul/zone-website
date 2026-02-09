@@ -284,7 +284,7 @@ const AIDrivenAppSection = () => {
 
                 {/* Meta row - improved responsiveness */}
                 <motion.div
-                  className="grid grid-cols-2 sm:flex flex-wrap items-center justify-between gap-2 text-[8px] sm:text-[9px] md:text-[10px] text-white/60"
+                  className="flex sm:flex  items-center  justify-between gap-2 text-[8px] sm:text-[9px] md:text-[10px] text-white/60"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -294,7 +294,7 @@ const AIDrivenAppSection = () => {
                     <span className="uppercase tracking-wider text-white/30">
                       Band
                     </span>
-                    <span>Low Beta</span>
+                    <span className="whitespace-nowrap">Low Beta</span>
                   </div>
 
                   <span className="hidden sm:inline h-0.5 w-0.5 sm:h-1 sm:w-1 rounded-full bg-white/30" />
@@ -309,26 +309,21 @@ const AIDrivenAppSection = () => {
                   <span className="hidden sm:inline h-0.5 w-0.5 sm:h-1 sm:w-1 rounded-full bg-white/30" />
 
                   {/* Animated Waveform - hidden on mobile */}
-                  <div className="col-span-2 sm:col-span-1 flex justify-center mt-2 sm:mt-0">
-                    <motion.svg
-                      viewBox="0 0 120 24"
-                      className="h-3 w-16 sm:h-3.5 sm:w-18 md:h-4 md:w-20 text-white/70"
-                      fill="none"
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
+                  <div className="col-span-2 sm:col-span-1  flex justify-center mt-2 sm:mt-0">
+                    <motion.img
+                      src="/wave.png"
+                      alt="EEG waveform"
+                      className="h-6 w-16 sm:h-6 sm:w-18 md:h-6 md:w-20 object-contain opacity-70"
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      whileInView={{ opacity: 1, scaleX: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.6 + i * 0.15 }}
-                    >
-                      <motion.path
-                        d="M0 12 C10 4, 20 4, 30 12
-                           S50 20, 60 12
-                           S80 4, 90 12
-                           S110 20, 120 12"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </motion.svg>
+                      transition={{
+                        duration: 0.8,
+                        delay: 0.6 + i * 0.15,
+                        ease: "easeOut",
+                      }}
+                      style={{ transformOrigin: "left center" }}
+                    />
                   </div>
 
                   <span className="hidden md:inline h-0.5 w-0.5 sm:h-1 sm:w-1 rounded-full bg-white/30" />
@@ -384,17 +379,21 @@ const AIDrivenAppSection = () => {
                 transition={{ delay: 0.7 + i * 0.15 }}
               >
                 {/* Two column layout */}
-                <div className="mb-4 sm:mb-5 md:mb-6 flex flex-col sm:flex-row gap-3 sm:gap-4 text-left">
-                  <div className="space-y-1 flex-1">
-                    <div className="text-[8px] sm:text-[9px] text-[#989385]">
-                      Logic Processing Impulse Control <br /> Sensory Gating
+                <div className="relative top-25 mb-4 sm:mb-5 md:mb-6 flex flex-col sm:flex-row gap-3 sm:gap-4 text-left">
+                  {/* LEFT – 40% */}
+                  <div className="basis-full sm:basis-[40%]">
+                    <div className="text-[8px] sm:text-[9px] text-[#989385] leading-relaxed">
+                      Logic Processing Impulse Control <br />
+                      Sensory Gating
                     </div>
                   </div>
-                  <div className="space-y-1 flex-1">
+
+                  {/* RIGHT – 60% */}
+                  <div className="basis-full sm:basis-[60%]">
                     <div className="text-[9px] sm:text-[10px] font-medium uppercase tracking-wider text-[#D6D4C9]">
                       Peak cognitive efficiency.
                     </div>
-                    <div className="text-[8px] sm:text-[9px] font-light text-[#D6D4C9]">
+                    <div className="text-[8px] sm:text-[9px] font-light text-[#D6D4C9] leading-relaxed">
                       Low Beta waves to lock your executive functions onto the
                       task. Pure, stabilized output for deep work.
                     </div>

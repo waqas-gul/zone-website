@@ -55,12 +55,12 @@ const PricingSection = () => {
         <Circle className="absolute right-4 bottom-12 h-1 w-1 fill-black/30 text-black/30 sm:right-1/4 sm:bottom-24" />
       </motion.div>
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 sm:grid-cols-2 sm:gap-16 sm:px-6 lg:gap-24 lg:px-10">
+      <div className="mx-auto  grid max-w-6xl grid-cols-1 gap-12 px-4 sm:grid-cols-2 sm:gap-16 sm:px-6 lg:gap-20 lg:px-10">
         {/* ================= LEFT CONTENT ================= */}
-        <div>
+        <div className=" flex flex-col gap-10">
           {/* Title + Price */}
           <motion.div
-            className="flex items-start justify-between mb-6 sm:mb-8"
+            className="flex items-start justify-between mb-6 sm:mb-8 "
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -118,7 +118,7 @@ const PricingSection = () => {
 
           {/* Feature list */}
           <motion.ul
-            className="mb-8 space-y-2 text-[11px] text-black/60 sm:mb-10 sm:space-y-3 sm:text-[12px]"
+            className="mb-8 space-y-2 text-[11px]  text-black/60 sm:mb-10 sm:space-y-3 sm:text-[12px]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -242,7 +242,7 @@ const PricingSection = () => {
 
         {/* ================= RIGHT VISUALS ================= */}
         <motion.div
-          className="relative flex flex-col items-center gap-8 sm:gap-12 lg:gap-16"
+          className="relative flex flex-col items-center gap-8 sm:gap-12 lg:gap-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -261,9 +261,9 @@ const PricingSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/bud1.png"
+              src="/Buds_case.png"
               alt="Zone Alpha Earbuds"
-              className="w-[200px] sm:w-[240px] lg:w-[280px]"
+              className="w-[240px] sm:w-[240px] lg:w-full"
             />
           </motion.div>
 
@@ -280,9 +280,9 @@ const PricingSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/bud2.png"
+              src="/Buds_case_2.png"
               alt="Charging Case"
-              className="w-[200px] sm:w-[240px] lg:w-[280px]"
+              className="w-[200px] sm:w-[240px] lg:w-full"
             />
           </motion.div>
         </motion.div>
