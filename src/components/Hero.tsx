@@ -157,7 +157,7 @@ const itemVariants = {
 };
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
