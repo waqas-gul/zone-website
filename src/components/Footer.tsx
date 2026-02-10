@@ -31,7 +31,7 @@ const Footer = () => {
       <motion.img
         src="/hero-bg.png"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover blur-sm"
+        className="absolute inset-0 h-full w-full object-cover object-top blur-sm"
         initial={{ scale: 1.05 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
@@ -40,7 +40,7 @@ const Footer = () => {
       <motion.img
         src="/hero-bg.png"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover blur-[60px] scale-110 opacity-60"
+        className="absolute inset-0 h-full w-full object-cover object-top blur-[60px] scale-110 opacity-60"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.6 }}
         viewport={{ once: true }}
