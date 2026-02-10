@@ -31,8 +31,8 @@ const Footer = () => {
       <motion.img
         src="/hero-bg.png"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover blur-xl"
-        initial={{ scale: 1.1 }}
+        className="absolute inset-0 h-full w-full object-cover blur-sm"
+        initial={{ scale: 1.05 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5 }}
@@ -40,9 +40,9 @@ const Footer = () => {
       <motion.img
         src="/hero-bg.png"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover blur-[120px] scale-125 opacity-80"
+        className="absolute inset-0 h-full w-full object-cover blur-[60px] scale-110 opacity-60"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.8 }}
+        whileInView={{ opacity: 0.6 }}
         viewport={{ once: true }}
         transition={{ duration: 2 }}
       />
@@ -56,14 +56,7 @@ const Footer = () => {
         transition={{ duration: 1 }}
       />
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(59,130,246,0.18),transparent_60%)]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 1 }}
-      />
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,140,90,0.35),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_60%_50%,rgba(255,87,51,0.45),transparent_40%)]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -111,61 +104,23 @@ const Footer = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 1 }}
       >
-        <motion.h1
-          className="pointer-events-none select-none text-[35vw] sm:text-[30vw] lg:text-[25vw] font-semibold tracking-tight text-black/85"
+        <motion.img
+          src="/footer_logo.png"
+          alt="Zone Logo"
+          className="pointer-events-none select-none w-[60vw] sm:w-[50vw] lg:w-[60vw] h-auto opacity-85"
           initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 0.85, scale: 1 }}
           viewport={{ once: true }}
-          transition={{
-            delay: 0.4,
-            duration: 1.2,
-            ease: [0.34, 1.56, 0.64, 1],
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.85, 0.7, 0.85],
           }}
-        >
-          <motion.span
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-          >
-            Z
-          </motion.span>
-          <motion.span
-            className="mx-[0.04em] inline-block"
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [1, 0.7, 1],
-            }}
-            transition={{
-              scale: {
-                delay: 0.7,
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-              opacity: {
-                delay: 0.7,
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-            }}
-          >
-            ·
-          </motion.span>
-
-          <motion.span
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-          >
-            ne
-          </motion.span>
-        </motion.h1>
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       </motion.div>
 
       {/* ================= BOTTOM CONTENT ANIMATIONS ================= */}
