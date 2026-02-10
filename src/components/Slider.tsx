@@ -54,16 +54,16 @@ export default function Slider() {
     >
       {/* Header Section */}
       <motion.div
-        className="flex z-10 justify-between items-start my-8 mx-16"
+        className="flex flex-col md:flex-row z-10 justify-between items-start gap-6 my-4 sm:my-6 md:my-8 mx-4 sm:mx-8 md:mx-12 lg:mx-16"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
         {/* Left: Header Text */}
-        <div className="max-w-md">
+        <div className="max-w-md w-full">
           <motion.h1
-            className="text-4xl md:text-5xl font-light text-[#333330] mb-1"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-[#333330] mb-1"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -72,7 +72,7 @@ export default function Slider() {
             tune out the world.
           </motion.h1>
           <motion.h2
-            className="text-3xl md:text-4xl font-light text-[#989385] mb-4"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-[#989385] mb-4"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -81,7 +81,7 @@ export default function Slider() {
             tune in to your mind.
           </motion.h2>
           <motion.p
-            className="text-xs text-[#333330] max-w-xs leading-relaxed"
+            className="text-xs sm:text-sm text-[#333330] max-w-xs leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -92,9 +92,9 @@ export default function Slider() {
           </motion.p>
         </div>
 
-        {/* Right: Navigation Arrows */}
+        {/* Navigation Arrows - Horizontal alignment at top right */}
         <motion.div
-          className="flex gap-2"
+          className="flex gap-2 mt-0 md:mt-24 md:self-end"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -102,7 +102,7 @@ export default function Slider() {
         >
           <motion.button
             onClick={prevSlide}
-            className="bg-white rounded-full p-3 shadow-md hover:bg-gray-50 transition-colors relative overflow-hidden group"
+            className="bg-white rounded-full p-2 sm:p-3 shadow-md hover:bg-gray-50 transition-colors relative overflow-hidden group"
             aria-label="Previous slide"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -113,12 +113,12 @@ export default function Slider() {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.6 }}
             />
-            <ChevronLeft className="w-5 h-5 text-gray-800 relative z-10" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800 relative z-10" />
           </motion.button>
 
           <motion.button
             onClick={nextSlide}
-            className="bg-[#FF5714] rounded-full p-3 shadow-md hover:bg-[#ff7e14] transition-colors relative overflow-hidden group"
+            className="bg-[#FF5714] rounded-full p-2 sm:p-3 shadow-md hover:bg-[#ff7e14] transition-colors relative overflow-hidden group"
             aria-label="Next slide"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -139,21 +139,21 @@ export default function Slider() {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.6 }}
             />
-            <ChevronRight className="w-5 h-5 text-white relative z-10" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white relative z-10" />
           </motion.button>
         </motion.div>
       </motion.div>
 
       {/* Carousel Container */}
       <motion.div
-        className="flex-1 z-20  flex items-center justify-end relative"
+        className="flex-1 z-20 flex items-center justify-center md:justify-end relative overflow-hidden w-full"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        <div className="w-full max-w-6xl relative">
-          <div className="relative">
+        <div className="w-full max-w-6xl relative px-0">
+          <div className="relative overflow-hidden">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentSlide}
@@ -178,13 +178,13 @@ export default function Slider() {
                   opacity: { duration: 0.4 },
                   scale: { duration: 0.3 },
                 }}
-                className="flex gap-6"
+                className="flex gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-4 sm:px-0"
               >
-                <div className="flex gap-6">
+                <div className="flex gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                   {slides.map((slide, index) => (
                     <motion.div
                       key={`${currentSlide}-${index}`}
-                      className="flex-shrink-0 w-80 relative"
+                      className="flex-shrink-0 w-40 xs:w-44 sm:w-56 md:w-64 lg:w-80 max-w-[80vw] sm:max-w-none relative"
                       initial={{ opacity: 0, scale: 0.9, y: 20, zIndex: 1 }}
                       animate={{
                         opacity: 1,
@@ -203,11 +203,11 @@ export default function Slider() {
                         transition: { duration: 0.3 },
                       }}
                     >
-                      <div className="relative rounded-full overflow-hidden aspect-[2/3] bg-[#F3F2EE] shadow-xl">
+                      <div className="relative rounded-full overflow-hidden aspect-[2/3] bg-[#F3F2EE] shadow-xl w-full">
                         <motion.img
                           src={slide.image}
                           alt={slide.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                           initial={{ scale: 1.1 }}
                           animate={{ scale: 1 }}
                           transition={{ duration: 0.7 }}
@@ -215,19 +215,19 @@ export default function Slider() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                         <motion.div
-                          className="absolute bottom-10 left-0 right-0 text-center text-white px-6"
+                          className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10 left-0 right-0 text-center text-white px-2 sm:px-3 md:px-4 lg:px-6"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3 }}
                         >
                           <motion.p
-                            className="text-base font-light"
+                            className="text-xs sm:text-sm md:text-base font-light"
                             whileHover={{ scale: 1.05 }}
                           >
                             {slide.title}
                           </motion.p>
                           <motion.p
-                            className="text-base font-light"
+                            className="text-xs sm:text-sm md:text-base font-light"
                             whileHover={{ scale: 1.05 }}
                           >
                             {slide.subtitle}
@@ -252,7 +252,7 @@ export default function Slider() {
 
             {/* Right side blur gradient */}
             <motion.div
-              className="absolute top-0 right-0 bottom-0 w-48 bg-gradient-to-l from-[#F3F2EE] to-transparent pointer-events-none z-10"
+              className="hidden sm:block absolute top-0 right-0 bottom-0 w-24 sm:w-32 md:w-48 bg-gradient-to-l from-[#F3F2EE] to-transparent pointer-events-none z-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -261,7 +261,7 @@ export default function Slider() {
 
           {/* Dots Indicator */}
           <motion.div
-            className="flex justify-center gap-2 mt-8"
+            className="flex justify-center gap-2 mt-4 sm:mt-6 md:mt-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
