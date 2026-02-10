@@ -74,19 +74,9 @@ const AIDrivenAppSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
-          <motion.div className="bg-red-600 p-1"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <Circle className="h-1.5 w-2 sm:h-2 sm:w-3 text-[#FF5714] fill-[#FF5714]" />
-          </motion.div>
+          <div className="bg-[#FF5714] p-1">
+            <Circle className="h-3 w-3 sm:h-3 sm:w-3 text-black fill-black" />
+          </div>
           <motion.p
             className="text-white"
             initial={{ opacity: 0 }}
