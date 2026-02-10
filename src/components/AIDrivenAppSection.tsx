@@ -105,7 +105,7 @@ const AIDrivenAppSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          the ai driven app that
+          the AI driven app that
           <br />
           translates your brain-
           <br className="hidden sm:block" />

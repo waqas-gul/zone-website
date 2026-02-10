@@ -337,7 +337,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ delay: 1.7 }}
             >
-              © 2025. All rights reserved. zone LLC
+              © 2026. All rights reserved. zone LLC
             </motion.span>
           </motion.div>
         </div>

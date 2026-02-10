@@ -211,33 +211,18 @@ export default function Hero() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.div
-          className="flex items-center justify-center text-black/70"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className="flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          <motion.span
-            className="text-2xl md:text-3xl font-bold tracking-tight"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            z
-          </motion.span>
-          <motion.div
-            initial={{ scale: 0, rotate: 180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", delay: 0.3 }}
-          >
-            <Dot className="-mx-2 md:-mx-3 size-8 md:size-12 relative  top-0.5 md:top-1 text-black/70" />
-          </motion.div>
-          <motion.span
-            className="text-2xl md:text-3xl font-bold tracking-tight"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            ne
-          </motion.span>
+          <motion.img
+            src="/zone_logo.png"
+            alt="Zone Logo"
+            className="h-8 md:h-8 w-auto object-contain"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          />
         </motion.div>
 
         <motion.div
@@ -442,7 +427,7 @@ export default function Hero() {
             ease: "easeInOut",
           }}
         >
-          Delivery Begins 2025
+          Delivery Begins 2026
         </motion.div>
       </motion.div>
 

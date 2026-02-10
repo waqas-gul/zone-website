@@ -352,7 +352,7 @@ const RestlessMindSection = () => {
       </motion.div>
 
       {/* Connection lines between cards (subtle) */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none">
+      {/* <svg className="absolute inset-0 w-full h-full pointer-events-none">
         <motion.path
           d="M15% 40% Q 30% 50%, 50% 45% T 85% 55%"
           stroke="rgba(0,0,0,0.1)"
@@ -373,7 +373,7 @@ const RestlessMindSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.5, delay: 1 }}
         />
-      </svg>
+      </svg> */}
     </motion.section>
   );
 };
