@@ -228,7 +228,8 @@ const TechnicalSpecificationsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7 }}
           >
-            <motion.div className="w-full h-full  flex items-center justify-center"
+            <motion.div
+              className="w-full h-full  flex items-center justify-center"
               initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
               whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
               viewport={{ once: true }}
@@ -245,7 +246,7 @@ const TechnicalSpecificationsSection = () => {
               <img
                 src="/Buds_case_3.png"
                 alt="Zone earbuds"
-                className="mb-6 w-full   lg:mb-8 drop-shadow-xl"
+                className="mb-6 w-64 lg:w-full  lg:mb-8 drop-shadow-xl"
               />
             </motion.div>
 
