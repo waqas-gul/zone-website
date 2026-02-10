@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dot } from "lucide-react";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { TbGridDots } from "react-icons/tb";
+import { TbGridDots, TbWaveSine } from "react-icons/tb";
 import { motion } from "framer-motion";
 
 type WaveIconProps = { className?: string };
@@ -252,40 +252,154 @@ export default function Hero() {
 
       {/* Center headline */}
       <div className="relative z-20 flex min-h-screen items-center justify-center px-4">
-        <motion.h1
-          className="select-none text-center text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px] font-light tracking-wide text-white/65"
-          variants={fadeUpVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
+        <div className="relative flex items-center   gap-8 lg:gap-12 xl:gap-32">
+          {/* Left decorative section */}
+          <motion.div
+            className="hidden lg:flex items-center gap-3"
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
           >
-            own your foc
-          </motion.span>
-          <motion.span
-            className="blur-[1px] md:blur-[2px]"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{
-              opacity: 1,
-              x: 0,
-              filter: ["blur(2px)", "blur(1px)", "blur(2px)"],
-            }}
-            transition={{
-              opacity: { delay: 0.6 },
-              x: { delay: 0.6 },
-              filter: {
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-            }}
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+            <motion.div
+              className="flex flex-col items-start gap-1"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-[6px] tracking-[0.2em] text-[#333330] uppercase font-medium">
+                Brain Scan
+              </span>
+              <span className="text-[9px] text-[#1E1D1C] font-semibold">
+                Active
+              </span>
+            </motion.div>
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+            <motion.div
+              className="flex flex-col items-start gap-1"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-[6px] tracking-[0.2em] text-[#333330] uppercase font-medium">
+                Brain Freq
+              </span>
+              <span className="text-[9px] text-[#1E1D1C] font-semibold">
+                14.8 HZ
+              </span>
+            </motion.div>
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="flex items-center"
+            >
+              <img src="/black_wave.png" className="  " />
+            </motion.div>
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+          </motion.div>
+
+          {/* Center headline */}
+          <motion.h1
+            className="select-none text-center text-[32px] sm:text-[40px] md:text-[56px] lg:text-[40px] font-light tracking-wide text-white/65"
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
           >
-            us{" "}
-          </motion.span>
-        </motion.h1>
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              own your foc
+            </motion.span>
+            <motion.span
+              className="blur-[1px] md:blur-[2px]"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                filter: ["blur(2px)", "blur(1px)", "blur(2px)"],
+              }}
+              transition={{
+                opacity: { delay: 0.6 },
+                x: { delay: 0.6 },
+                filter: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
+            >
+              us{" "}
+            </motion.span>
+          </motion.h1>
+
+          {/* Right decorative section */}
+          <motion.div
+            className="hidden lg:flex items-center gap-3"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+            <motion.div
+              className="flex flex-col items-start gap-1"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-[6px] tracking-[0.2em] text-[#333330] uppercase font-medium">
+                Detected Zone
+              </span>
+              <span className="text-[9px] text-[#1E1D1C] font-semibold">
+                Deep Focus
+              </span>
+            </motion.div>
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+            <motion.div
+              className="flex flex-col items-start gap-1"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-[6px] tracking-[0.2em] text-[#333330] uppercase font-medium">
+                Frequency Tone
+              </span>
+              <span className="text-[9px] text-[#1E1D1C] font-semibold">
+                Low Beta
+              </span>
+            </motion.div>
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4 text-[#1E1D1C]" />
+            </div>
+            <motion.div
+              className="flex flex-col items-start gap-1"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-[6px] tracking-[0.2em] text-[#333330] uppercase font-medium">
+                Lead Limit
+              </span>
+              <span className="text-[9px] text-[#1E1D1C] font-semibold">
+                &gt;21 HZ
+              </span>
+            </motion.div>
+            <div className="flex flex-col gap-5">
+              <Dot className="size-4 text-[#1E1D1C]" />
+              <Dot className="size-4  text-[#1E1D1C]" />
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* LEFT MID STRIP */}
@@ -413,7 +527,7 @@ export default function Hero() {
         transition={{ delay: 0.9 }}
       >
         <motion.div
-          className="rounded border border-black px-2 py-1 text-[8px] md:text-[9px] text-black font-medium backdrop-blur-sm bg-white/80"
+          className="rounded border border-black px-2 py-1 text-[8px] md:text-[9px] text-black font-medium backdrop-blur-sm"
           whileHover={{
             scale: 1.05,
             backgroundColor: "rgba(255,255,255,0.9)",

@@ -74,7 +74,7 @@ const AIDrivenAppSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
-          <motion.div
+          <motion.div className="bg-red-600 p-1"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 180, 360],

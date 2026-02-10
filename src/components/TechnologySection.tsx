@@ -76,12 +76,63 @@ const TechnologySection = () => {
 
   return (
     <motion.section
-      className="relative w-full min-h-screen overflow-hidden bg-black px-16"
+      className="relative w-full h-screen overflow-hidden bg-black px-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
+      {/* Grid pattern background on left side */}
+      <div className="absolute left-0 top-0 h-full w-1/2 overflow-hidden">
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+            radial-gradient(circle at 10% 50%, transparent 25%, rgba(255, 87, 20, 0.08) 26%, transparent 27%),
+            radial-gradient(circle at 10% 50%, transparent 20%, rgba(255, 87, 20, 0.04) 21%, transparent 22%),
+            linear-gradient(45deg, transparent 49%, rgba(255, 87, 20, 0.02) 50%, transparent 51%),
+            linear-gradient(-45deg, transparent 49%, rgba(255, 87, 20, 0.02) 50%, transparent 51%)
+          `,
+            backgroundSize: "100px 100px, 150px 150px, 80px 80px, 80px 80px",
+            backgroundPosition: "0 0, 0 0, 0 0, 0 0",
+          }}
+        />
+
+        {/* Gradient overlay */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(255, 87, 20, 0.1) 0%, transparent 70%)",
+          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+        />
+
+        {/* Subtle animated glow effect */}
+        <motion.div
+          className="absolute top-1/2 left-20 -translate-y-1/2 w-96 h-96"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255, 87, 20, 0.15) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+
+      {/* Existing radial gradient */}
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,87,20,0.08),transparent_45%)]"
         initial={{ opacity: 0 }}
@@ -90,7 +141,7 @@ const TechnologySection = () => {
         transition={{ duration: 1 }}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-screen items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
+      <div className="relative z-10 mx-auto flex h-screen items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
         <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           <div className="flex flex-col justify-center max-w-sm mx-auto lg:mx-0 px-4 sm:px-0">
             <motion.div
@@ -168,8 +219,8 @@ const TechnologySection = () => {
             <motion.img
               src="/brain_sensing.png"
               alt="Earbud blurred"
-              className="absolute right-4 sm:right-8 lg:right-10 top-1/2 w-40 sm:w-48 md:w-56 -translate-y-1/2"
-              initial={{ opacity: 0, x: 100, scale: 0.9 }} // Starting from right
+              className="absolute right-4 sm:right-8 lg:right-10 top-1/2 w-40 sm:w-48 md:w-lg  -translate-y-1/2"
+              initial={{ opacity: 0, x: 100, scale: 0.9 }}
               whileInView={{ opacity: 0.6, x: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
@@ -185,28 +236,28 @@ const TechnologySection = () => {
             <motion.img
               src="/brain_sensing.png"
               alt="Earbud"
-              className="relative z-10 sm:w-72 md:w-80 lg:w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] sm:drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
+              className="relative z-10 sm:w-72 md:w-80 lg:w-lg drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] sm:drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
               initial={{
                 opacity: 0,
                 scale: 0.85,
-                x: 100, // Start off-screen to the right
-                rotateY: -15, // Adjusted for right-to-left movement
+                x: 100,
+                rotateY: -15,
               }}
               whileInView={{
                 opacity: 1,
                 scale: 1,
-                x: 0, // Move to normal position
+                x: 0,
                 rotateY: 0,
               }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
                 duration: 2.2,
                 ease: [0.16, 1, 0.3, 1],
-                delay: 0.2, // Slight delay for staggered effect
+                delay: 0.2,
               }}
               whileHover={{
                 scale: 1.04,
-                x: -10, // Slight left movement on hover for depth
+                x: -10,
               }}
               style={{
                 transformPerspective: 1200,

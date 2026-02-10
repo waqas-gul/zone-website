@@ -46,7 +46,7 @@ export default function Slider() {
 
   return (
     <motion.div
-      className="min-h-screen bg-[#F3F2EE] flex flex-col p-8 md:p-12"
+      className="min-h-screen bg-[#F3F2EE] flex flex-col pb-10 "
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -54,7 +54,7 @@ export default function Slider() {
     >
       {/* Header Section */}
       <motion.div
-        className="flex justify-between items-start mb-12"
+        className="flex z-10 justify-between items-start my-8 mx-16"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
@@ -146,14 +146,14 @@ export default function Slider() {
 
       {/* Carousel Container */}
       <motion.div
-        className="flex-1 flex items-center justify-end relative"
+        className="flex-1 z-20  flex items-center justify-end relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         <div className="w-full max-w-6xl relative">
-          <div className="overflow-hidden relative">
+          <div className="relative">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentSlide}
@@ -184,12 +184,13 @@ export default function Slider() {
                   {slides.map((slide, index) => (
                     <motion.div
                       key={`${currentSlide}-${index}`}
-                      className="flex-shrink-0 w-80"
-                      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                      className="flex-shrink-0 w-80 relative"
+                      initial={{ opacity: 0, scale: 0.9, y: 20, zIndex: 1 }}
                       animate={{
                         opacity: 1,
                         scale: index === currentSlide ? 1 : 0.95,
                         y: 0,
+                        zIndex: 1,
                       }}
                       transition={{
                         delay: index * 0.1,
@@ -198,6 +199,7 @@ export default function Slider() {
                       }}
                       whileHover={{
                         scale: index === currentSlide ? 1.05 : 1,
+                        zIndex: 50,
                         transition: { duration: 0.3 },
                       }}
                     >
@@ -250,7 +252,7 @@ export default function Slider() {
 
             {/* Right side blur gradient */}
             <motion.div
-              className="absolute top-0 right-0 bottom-0 w-48 bg-gradient-to-l from-[#F3F2EE] to-transparent pointer-events-none"
+              className="absolute top-0 right-0 bottom-0 w-48 bg-gradient-to-l from-[#F3F2EE] to-transparent pointer-events-none z-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
