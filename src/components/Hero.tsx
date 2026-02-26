@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dot } from "lucide-react";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { TbGridDots, TbWaveSine } from "react-icons/tb";
+import { TbGridDots } from "react-icons/tb";
 import { motion } from "framer-motion";
 
 type WaveIconProps = { className?: string };
