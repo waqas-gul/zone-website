@@ -1,6 +1,85 @@
 import { Check, Circle } from "lucide-react";
 import { FaLocationArrow } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { type PointerEventHandler, useMemo, useRef, useState } from "react";
+
+const FRAMES_X = 96;
+const FRAMES_Y = 8;
+const GRAB_ROTATE_DISTANCE_X = 1000;
+const GRAB_ROTATE_DISTANCE_Y = 500;
+
+const getFrameSrc = (x: number, y: number) => {
+  const frameNumber = y * FRAMES_X + x + 1;
+  return `/3d_model/images/Frame${String(frameNumber).padStart(6, "0")}.png`;
+};
+
+const BudsModelViewer = () => {
+  const [frameX, setFrameX] = useState(0);
+  const [frameY, setFrameY] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const dragStart = useRef({
+    x: 0,
+    y: 0,
+    frameX: 0,
+    frameY: 0,
+  });
+
+  const src = useMemo(() => getFrameSrc(frameX, frameY), [frameX, frameY]);
+
+  const onPointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
+    dragStart.current = {
+      x: event.clientX,
+      y: event.clientY,
+      frameX,
+      frameY,
+    };
+    setDragging(true);
+  };
+
+  const onPointerMove: PointerEventHandler<HTMLDivElement> = (event) => {
+    if (!dragging) return;
+
+    const deltaX = event.clientX - dragStart.current.x;
+    const deltaY = event.clientY - dragStart.current.y;
+
+    const frameDiffX = Math.round((deltaX / GRAB_ROTATE_DISTANCE_X) * FRAMES_X);
+    const frameDiffY = Math.round((deltaY / GRAB_ROTATE_DISTANCE_Y) * FRAMES_Y);
+
+    const nextFrameX =
+      ((dragStart.current.frameX + frameDiffX) % FRAMES_X + FRAMES_X) % FRAMES_X;
+    const nextFrameY = Math.max(
+      0,
+      Math.min(FRAMES_Y - 1, dragStart.current.frameY + frameDiffY),
+    );
+
+    setFrameX(nextFrameX);
+    setFrameY(nextFrameY);
+  };
+
+  const onPointerUp: PointerEventHandler<HTMLDivElement> = () => {
+    if (!dragging) return;
+    setDragging(false);
+  };
+
+  return (
+    <div
+      className="select-none"
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={onPointerUp}
+      onPointerCancel={onPointerUp}
+      style={{ cursor: dragging ? "grabbing" : "grab" }}
+    >
+      <img
+        src={src}
+        alt="Zone Alpha Buds 360 model"
+        className="w-[260px] sm:w-[300px] lg:w-[460px]"
+        draggable={false}
+      />
+    </div>
+  );
+};
 
 const PricingSection = () => {
   const features = [
@@ -242,49 +321,13 @@ const PricingSection = () => {
 
         {/* ================= RIGHT VISUALS ================= */}
         <motion.div
-          className="relative flex flex-col items-center gap-8 sm:gap-12 lg:gap-1"
+          className="relative flex items-center justify-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          {/* Earbuds (top) - simple fade in */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: 0.4,
-              duration: 0.6,
-              ease: "easeOut",
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <img
-              src="/Buds_case.png"
-              alt="Zone Alpha Earbuds"
-              className="w-[240px] sm:w-[240px] lg:w-full"
-            />
-          </motion.div>
-
-          {/* Case (bottom) - simple fade in */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: 0.6,
-              duration: 0.6,
-              ease: "easeOut",
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <img
-              src="/Buds_case_2.png"
-              alt="Charging Case"
-              className="w-[200px] sm:w-[240px] lg:w-full"
-            />
-          </motion.div>
+          <BudsModelViewer />
         </motion.div>
       </div>
     </motion.section>
